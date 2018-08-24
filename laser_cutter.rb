@@ -9,33 +9,24 @@ NOTE_ORDER = []
 end
 
 def generate_gcode(note_data)
-  gcode = ""
+  gcode = "G90\n"
   y_spacer_offset = 400
+  tempo_multiplier = 100
 
   require 'pry';binding.pry
+  ordered_note_data(note_data).each do |note|
+    y_start = y_spacer_offset + (note.first.first[1].first / tempo_multiplier)
+    y_end = y_spacer_offset + (note.first.first[1].last / tempo_multiplier)
+    x_start = ORGAN_CONFIG[note.first.first[0]][:x]
+    x_end = x_start + ORGAN_CONFIG[note.first.first[0]][:w]
 
-  ordered_note_data.each do |note|
-
-  end
-
-  for x in 0..note_data[:end_time] do
-    note_data.each_pair do |note, ranges|
-      if ranges.kind_of?(Array)
-        ranges.each do |range|
-          if range.include?(x) && ORGAN_CONFIG[note]
-            #TODO steps
-            #speed to beginning of hole
-            laser_on
-            #side 1
-            #side 2
-            #side 3
-            #side 4
-            laser_off
-
-          end
-        end
-      end
-    end
+    gcode += "G0 Y#{y_start} X#{x_start}\n"
+    laser_on
+    gcode += "G1 Y#{y_start} X#{x_end}\n"
+    gcode += "G1 Y#{y_end} X#{x_end}\n"
+    gcode += "G1 Y#{y_end} X#{x_start}\n"
+    gcode += "G1 Y#{y_start} X#{x_start}"
+    laser_off
   end
 
   File.write("midi_gcode.gcode", "%\n#{gcode}\n%") # output the program's gcode to stdout
