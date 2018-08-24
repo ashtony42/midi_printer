@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'midilib'
+# gem 'gcodify', path: 'gcodify-master'
+gem 'pry'
+#gem 'unimidi'

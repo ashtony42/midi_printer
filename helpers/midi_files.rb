@@ -1,0 +1,16 @@
+BAD_APPLE = "Bad Apple Marasy8 piano ver.mid"
+AVICII_LEVELS = "Avicii-Levels-djrenco-20131218003124-nonstop2k.com.mid"
+BLUE = "Blue_Da_Ba_Dee.mid"
+TJOURS = "gigi_d_agostino_-_l_amour_toujours.mid" # tracks 0 1
+STILL_ALIVE = "still_alive.mid"
+SANDSTORM = "Sandstorm.mid"
+PIRATES = "OEML-23168.mid"
+DIDDLE = "diddle__s_song.mid"
+DGRAYMAN_PIANO = "d-gray-man-musician.mid" #notes don't end?
+DGRAYMAN_OPENING = "d-gray-man-doubt-and-trust.mid"
+BRIDGE = "Clash_on_the_Big_Bridge.mid"
+TITAN = "Guren no Yumiya.mid"
+RED_ZONE = "RED ZONE.mid"
+NYAN = "nyancat.mid" # no track instruments?
+TUNER = "20er_Tuning.mid"
+MARBLE_MACHINE = "Marble_machine/Marble_Machine.mid"
