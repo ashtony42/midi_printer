@@ -25,7 +25,7 @@ def generate_gcode(note_data)
       end
     x_end = x_start + ORGAN_CONFIG[note.first[0]][:w]
 
-    gcode += "G0 Y#{y_start} X#{x_start} F8000\n"
+    gcode += "G0 Y#{y_start} X#{x_start}\n"
     laser_on
     gcode += "G1 Y#{y_start} X#{x_end}\n"
     gcode += "G1 Y#{y_end} X#{x_end}\n"
