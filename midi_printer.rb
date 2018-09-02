@@ -1,23 +1,21 @@
 require_relative 'helpers/env'
-#require_relative 'hole_puncher'
 require_relative 'laser_cutter'
 
-file = STILL_ALIVE
+midi_file = BRIDGE
+instrument_config_file = 'example_note_layout_data'
 
 original_seq = Sequence.new()
 new_seq = Sequence.new()
 
-File.open("#{Dir.pwd}/midi_files/#{file}", 'rb') do |file|
+File.open("#{Dir.pwd}/midi_files/#{midi_file}", 'rb') do |file|
   original_seq.read(file)
 end
 
 show_midi_info(original_seq)
 
 
-#midi_note_data = get_midi_note_data(original_seq)
 midi_note_data = get_midi_note_coordinates(original_seq)
 generate_gcode(midi_note_data)
-#print_note_array(midi_note_data)
 
 
 print "Which tracks do you want? "
