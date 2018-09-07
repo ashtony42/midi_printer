@@ -18,11 +18,7 @@ def generate_gcode(note_data)
   note_data.each do |note|
     y_start = y_spacer_offset + (note.first[1].first / tempo_multiplier)
     y_end = y_spacer_offset + (note.first[1].last / tempo_multiplier)
-    begin
     x_start = ORGAN_CONFIG[note.first[0]][:x]
-    rescue => e
-      require 'pry';binding.pry
-      end
     x_end = x_start + ORGAN_CONFIG[note.first[0]][:w]
 
     gcode += "G0 Y#{y_start} X#{x_start}\n"
